@@ -1,0 +1,49 @@
+NAME="lcms2"
+VERSION=2.8
+RELEASE=1
+CATEGORY="Graphics Libs"
+SUMMARY="Little color management engine"
+DESCRIPTION="Little CMS intends to be a small-footprint color management engine,
+with special focus on accuracy and performance.  It uses the
+International Color Consortium standard (ICC), which is the modern
+standard when regarding to color management.  The ICC specification is
+widely used and is referred to in many International and other
+de-facto standards."
+
+HOMEPAGE="http://littlecms.com/"
+SRC_URI="mirror://sourceforge/lcms/${PV}/${P}.tar.gz"
+PATCH_URI="
+  http://pkgs.fedoraproject.org/cgit/rpms/lcms2.git/plain/0001-Added-an-extra-check-to-MLU-bounds.patch
+"
+
+DEPEND="libjpeg-devel libtiff-devel zlib-devel"
+
+abi=2
+PKG_NAMES="${PN} lib${PN}_${abi} lib${PN}-devel"
+lcms2_SUMMARY="${SUMMARY} (utilities)"
+lcms2_CONTENTS="
+  usr/bin/*.exe
+  usr/share/
+"
+
+liblcms2_2_SUMMARY="${SUMMARY} (runtime)"
+liblcms2_2_CONTENTS="usr/bin/cyg${PN}-${abi}.dll"
+
+liblcms2_devel_SUMMARY="${SUMMARY} (development)"
+liblcms2_devel_CATEGORY="Devel ${CATEGORY}"
+liblcms2_devel_CONTENTS="
+  usr/include/
+  usr/lib/lib*
+  usr/lib/pkgconfig/
+"
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	dodir /usr/share/doc/${PN}
+	for fn in ${S}/doc/*.pdf
+	do
+	  dodoc "${fn}"
+	done
+}
