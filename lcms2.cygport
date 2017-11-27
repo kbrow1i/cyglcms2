@@ -1,5 +1,5 @@
 NAME="lcms2"
-VERSION=2.8
+VERSION=2.9
 RELEASE=1
 CATEGORY="Graphics Libs"
 SUMMARY="Little color management engine"
@@ -12,9 +12,6 @@ de-facto standards."
 
 HOMEPAGE="http://littlecms.com/"
 SRC_URI="mirror://sourceforge/lcms/${PV}/${P}.tar.gz"
-PATCH_URI="
-  http://pkgs.fedoraproject.org/cgit/rpms/lcms2.git/plain/0001-Added-an-extra-check-to-MLU-bounds.patch
-"
 
 DEPEND="libjpeg-devel libtiff-devel zlib-devel"
 
@@ -37,13 +34,13 @@ liblcms2_devel_CONTENTS="
   usr/lib/pkgconfig/
 "
 
-src_install() {
-	cd ${B}
-	cyginstall
+# src_install() {
+# 	cd ${B}
+# 	cyginstall
 
-	dodir /usr/share/doc/${PN}
-	for fn in ${S}/doc/*.pdf
-	do
-	  dodoc "${fn}"
-	done
-}
+# 	dodir /usr/share/doc/${PN}
+# 	for fn in ${S}/doc/*.pdf
+# 	do
+# 	  dodoc "${fn}"
+# 	done
+# }
