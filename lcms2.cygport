@@ -34,13 +34,9 @@ liblcms2_devel_CONTENTS="
   usr/lib/pkgconfig/
 "
 
-# src_install() {
-# 	cd ${B}
-# 	cyginstall
+DOCS="doc/*.pdf"
 
-# 	dodir /usr/share/doc/${PN}
-# 	for fn in ${S}/doc/*.pdf
-# 	do
-# 	  dodoc "${fn}"
-# 	done
-# }
+# 'make check' relies on LD_LIBRARY_PATH, which is not supported on
+# Cygwin.  As a result, it reports a version mismatch.  But all tests
+# pass if 'cygport lcms2.cygport test' is run after the built lcms2 is
+# installed.
