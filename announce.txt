@@ -1,0 +1,23 @@
+From cygwin-announce-lcms2-2.9-1 Tue Dec 05 06:30:15 2017
+From: Ken Brown <kbrown@cornell.edu>
+To: cygwin-announce@cygwin.com
+Date: Tue, 05 Dec 2017 06:30:15 -0500
+Subject: lcms2 2.9-1
+
+The following packages have been uploaded to the Cygwin distribution:
+
+* lcms2-2.9-1
+* liblcms2_2-2.9-1
+* liblcms2-devel-2.9-1
+
+Little CMS intends to be a small-footprint color management engine,
+with special focus on accuracy and performance.  It uses the
+International Color Consortium standard (ICC), which is the modern
+standard when regarding to color management.  The ICC specification is
+widely used and is referred to in many International and other
+de-facto standards.
+
+This is an update to the latest upstream release.
+
+Ken Brown
+Cygwin's (new) lcms2 maintainer
